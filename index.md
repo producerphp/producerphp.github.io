@@ -8,9 +8,11 @@ Producer is a command-line tool to validate, and then release, your PHP library 
 
 ## Installing
 
-Add `$COMPOSER_HOME/vendor/bin` to your PATH ([instuctions here](https://getcomposer.org/doc/03-cli.md#global)).
+Producer works in concert with [Composer](https://getcomposer.org). Install it first.
 
-Then issue `composer global require producer/producer:~1.0` to install Producer.
+Then add `$COMPOSER_HOME/vendor/bin` to your `$PATH` ([instuctions here](https://getcomposer.org/doc/03-cli.md#global)).
+
+Finally, issue `composer global require producer/producer:~1.0` to install Producer.
 
 To test the installation, issue `producer` at the command line to see some "help" output.
 
@@ -28,8 +30,7 @@ github_token =
 gitlab_token =
 ; Bitbucket
 bitbucket_username =
-bitbucket_password =
-" > ~/.producer/config
+bitbucket_password =" > ~/.producer/config
 ```
 
 You can then edit `~/.producer/config` to enter your access credentials, any or all of:
