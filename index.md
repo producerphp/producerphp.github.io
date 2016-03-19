@@ -10,7 +10,7 @@ Producer is a command-line tool to validate, and then release, your PHP library 
 
 Producer works in concert with [Composer](https://getcomposer.org). Install it first.
 
-Then add `$COMPOSER_HOME/vendor/bin` to your `$PATH` ([instuctions here](https://getcomposer.org/doc/03-cli.md#global)).
+Then add `$COMPOSER_HOME/vendor/bin` to your `$PATH` ([instructions here](https://getcomposer.org/doc/03-cli.md#global)).
 
 Finally, issue `composer global require producer/producer 1.0` to install Producer.
 
