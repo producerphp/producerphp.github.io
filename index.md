@@ -6,7 +6,8 @@ layout: site
 
 Producer is a command-line quality-assurance tool to validate, and then release,
 your PHP library package. It supports Git and Mercurial for version control, as
-well as Github, Gitlab, and Bitbucket for remote origins.
+well as Github, Gitlab, and Bitbucket for remote origins (including self-hosted
+origins).
 
 ## Installing
 
@@ -20,7 +21,7 @@ your package.
 
 ### Global Install
 
-To install Producer globally, issue `composer global require producer/producer ~2.0`.
+To install Producer globally, issue `composer global require producer/producer`.
 
 Be sure to add `$COMPOSER_HOME/vendor/bin` to your `$PATH`;
 [instuctions here](https://getcomposer.org/doc/03-cli.md#global).
@@ -32,16 +33,7 @@ Test the installation by issuing `producer` at the command line to see some
 
 ### Package Install
 
-To install Producer package as a development requirement for your package, add
-the following lines to your `composer.json`:
-
-```
-"require-dev": {
-    "producer/producer": "~2.0"
-}
-```
-
-Issue `composer install` or `composer update` to complete the installation.
+To install the Producer package as a development requirement for your package issue `composer require --dev producer/producer`.
 
 Test the installation by issuing `./vendor/bin/producer` at the command line to
 see some "help" output.
@@ -59,8 +51,10 @@ mkdir ~/.producer
 echo "; Github
 github_username =
 github_token =
+
 ; Gitlab
 gitlab_token =
+
 ; Bitbucket
 bitbucket_username =
 bitbucket_password =" > ~/.producer/config
@@ -88,6 +82,11 @@ sets any of the following options for that specific package.
 ; custom @package docblock value
 package = Custom.Name
 
+; custom hostnames for self-hosted origins
+github_hostname = example.com
+gitlab_hostname = example.net
+bitbucket_hostname = example.org
+
 ; commands to use for phpunit and phpdoc
 [commands]
 phpunit = /path/to/phpunit
@@ -101,6 +100,11 @@ license = LICENSE.md
 phpunit = phpunit.xml.dist
 readme = README.md
 ```
+
+> **Testing Systems**: If you want to use a testing system other than PHPUnit,
+> you can set `phpunit = /whatever/you/want`. As long as it exits non-zero when
+> the tests fail, Producer will work with it properly. Yes, it was short-sighted
+> to name the key `phpunit`; a future release of Producer may remedy that.
 
 ## Getting Started
 
